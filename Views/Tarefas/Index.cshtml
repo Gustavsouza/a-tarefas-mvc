@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Tarefa>
+
+@{
+    ViewData["Title"] = "CriarEditar";
+}
+
+<h1>Tarefas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TempoRestanteDias)
+            </th>
+            <th><a asp-action="CriarEditar" class="btn btn-success">Criar nova Tarefa</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFim)
+                </td>
+                <td>
+                    @{
+                        int? tempoRestante = item.TempoRestanteDias;
+                        string corClasse = "";
+
+                        if (tempoRestante.HasValue)
+                        {
+                            if (tempoRestante <= 2)
+                            {
+                                corClasse = "text-danger"; // Vermelho
+                            }
+                            else if (tempoRestante <= 5)
+                            {
+                                corClasse = "text-warning"; // Laranja
+                            }
+                            else
+                            {
+                                corClasse = "text-success"; // Verde
+                            }
+                        }
+                    }
+
+                    <span class="@corClasse">
+                        @Html.DisplayFor(modelItem => item.TempoRestanteDias)
+                    </span>
+                </td>
+                <td>
+                    <a asp-action="CriarEditar" class="btn btn-secondary" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" class="btn btn-warning" asp-route-id="@item.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

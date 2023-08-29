@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Usuários Cadastrados</h1>
+
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th><a asp-action="CriarEditar" class="btn btn-success">Criar Novo Usuário</a></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                    <a asp-action="CriarEditar" class="btn btn-secondary" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" class="btn btn-warning" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
