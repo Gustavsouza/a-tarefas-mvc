@@ -17,3 +17,8 @@ Acesse a seção de gerenciamento de tarefas através do link: https://localhost
 Acesse a seção de gerenciamento de usuários pelo link: https://localhost:Porta/Usuarios
 
 Nesta área, você também pode executar operações de criação, leitura, atualização e exclusão 
+
+Configure o appsettings.json 
+"ConnectionStrings": {
+    "TarefasGmillConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TarefasGmill;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
