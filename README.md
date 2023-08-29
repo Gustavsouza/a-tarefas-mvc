@@ -1,8 +1,6 @@
 
 # Controle de tarefas MVC
 
-Uma breve descrição sobre o que esse projeto faz e para quem ele é
-
 #Clonagem do repositório: Comece clonando este repositório para sua máquina local usando o comando:
 git clone https://github.com/seu-usuario/a-tarefas-mvc.git
 
