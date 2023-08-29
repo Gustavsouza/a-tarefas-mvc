@@ -14,7 +14,7 @@ namespace a_tarefas_mvc.Controllers
     [ApiController]
     public class UsuariosAPIController : Controller
     {
-        [HttpPost("Salvar")]
+        [HttpPost("Criar")]
         public Task<UsuarioResponse> CriarContato([FromServices] IMediator mediator, [FromBody] CriarUsuarioRequest request)
         {
             return mediator.Send(request);
