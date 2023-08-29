@@ -78,5 +78,37 @@ namespace a_tarefas_mvc.Controllers
 
             return true;
         }
+
+        [HttpPut("FinalizarTarefa/{tarefaId}")]
+        public async Task<ActionResult<TarefaResponse>> FinalizarTarefa([FromServices] IMediator mediator, int tarefaId)
+        {
+            var request = new FinalizarTarefaRequest { TarefaId = tarefaId };
+            var tarefaFinalizada = await mediator.Send(request);
+
+            if (tarefaFinalizada == null)
+            {
+                return NotFound();
+            }
+
+            return tarefaFinalizada;
+        }
+
+        [HttpGet("ListarTarefasPorStatus/{tarefaFinalizada}")]
+        public async Task<ActionResult<List<TarefaResponse>>> ListarTarefasPorStatus([FromServices] IMediator mediator, bool tarefaFinalizada)
+        {
+            var request = new ListarTarefasPorStatusRequest { TarefaFinalizada = tarefaFinalizada };
+            var tarefas = await mediator.Send(request);
+
+            return tarefas;
+        }
+
+        [HttpGet("UsuariosMaisFinalizaram")]
+        public async Task<ActionResult<List<UsuarioEstatisticasDto>>> UsuariosMaisFinalizaram([FromServices] IMediator mediator)
+        {
+            var request = new ObterEstatisticasUsuariosRequest();
+            var estatisticas = await mediator.Send(request);
+
+            return estatisticas;
+        }
     }
 }

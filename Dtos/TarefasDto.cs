@@ -6,6 +6,9 @@
         public string Descricao { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime? DataFim { get; set; }
+        public bool TarefaFinalizada { get; set; }
+
+        public int? TempoSolucao { get; set; }
 
         public int? TempoRestanteDias
         {

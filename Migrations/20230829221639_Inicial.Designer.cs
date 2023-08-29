@@ -12,7 +12,7 @@ using a_tarefas_mvc.Data;
 namespace a_tarefas_mvc.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230829212413_Inicial")]
+    [Migration("20230829221639_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -43,6 +43,12 @@ namespace a_tarefas_mvc.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("TarefaFinalizada")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("TempoSolucao")
+                        .HasColumnType("int");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");

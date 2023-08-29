@@ -35,7 +35,9 @@ namespace a_tarefas_mvc.Migrations
                     Descricao = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataFim = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DataFim = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TarefaFinalizada = table.Column<bool>(type: "bit", nullable: false),
+                    TempoSolucao = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

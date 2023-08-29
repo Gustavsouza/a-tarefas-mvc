@@ -41,6 +41,12 @@ namespace a_tarefas_mvc.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("TarefaFinalizada")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("TempoSolucao")
+                        .HasColumnType("int");
+
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 

@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>a_tarefas_mvc</RootNamespace>
+    <UserSecretsId>45ad14ab-f65f-4d04-8c84-69761d9f75fc</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

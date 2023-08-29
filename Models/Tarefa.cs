@@ -15,11 +15,18 @@ namespace a_tarefas_mvc.Models
         public string Descricao { get; set; }
 
         public int UsuarioId { get; set; }
+
         [DisplayName("Data Inicio ")]
         public DateTime DataInicio { get; set; }
+
         [DisplayName("Data Fim ")]
         public DateTime? DataFim { get; set; }
+
         public Usuario Usuario { get; set; }
+
+        public bool TarefaFinalizada { get; set; }
+
+        public int? TempoSolucao { get; set; }
 
         [NotMapped]
         [DisplayName("Tempo Restante em dias")]
@@ -39,6 +46,7 @@ namespace a_tarefas_mvc.Models
         public Tarefa()
         {
             DataInicio = DateTime.Now;
+            TarefaFinalizada = false; //
         }
     }
 }
